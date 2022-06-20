@@ -1,0 +1,252 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turfe amigo</title>
+
+    <link rel="shortcut icon" href="Img turfe/icon.png">
+    <link rel="stylesheet" href="GRUPO1front.css">
+  </head>
+
+  <body>
+    <div id="div_start">
+      Qtd voltas
+      <input type="number" id="ipt_qtdvolta" />
+      Qtd cavalo
+      <input type="number" id="ipt_qtdcavalo" /> <br />
+      <br />
+      <button onclick="cadastro()">
+        Cadastrar Voltas e Quantidade de Cavalos
+      </button>
+    </div>
+    <div id="div_nomes" style="display: none">
+      <input
+        id="nome_cavalo_1"
+        type="text"
+        placeholder="Nome Cavalo 1"
+        style="display: none"
+      /><br />
+      <input
+        id="nome_cavalo_2"
+        type="text"
+        placeholder="Nome Cavalo 2"
+        style="display: none"
+      /><br />
+      <input
+        id="nome_cavalo_3"
+        type="text"
+        placeholder="Nome Cavalo 3"
+        style="display: none"
+      /><br />
+      <input
+        id="nome_cavalo_4"
+        type="text"
+        placeholder="Nome Cavalo 4"
+        style="display: none"
+      /><br />
+      <input
+        id="nome_cavalo_5"
+        type="text"
+        placeholder="Nome Cavalo 5"
+        style="display: none"
+      /><br />
+      <input
+        id="nome_cavalo_6"
+        type="text"
+        placeholder="Nome Cavalo 6"
+        style="display: none"
+      /><br />
+      <button onclick="cadastrar_nome()">
+        Cadastrar Nomes e Começar Corrida!
+      </button>
+    </div>
+    <div id="div_result"></div>
+    <button id="btn_cadastro" onclick="iniciar()" style="display: none">
+      Dar uma volta
+    </button>
+
+    <div id="idColocacao"></div>
+  </body>
+</html>
+<script>
+  var qtd_Cavalos = 0;
+  var qtd_Voltas = 0;
+
+  function cadastro() {
+    if (Number(ipt_qtdcavalo.value) < 2 || Number(ipt_qtdcavalo.value) > 6) {
+      alert(
+        "O minimo é dois cavalos por corrida e no máximo 6, por favor digite o valor correto"
+      );
+    } else if (Number(ipt_qtdvolta.value) <= 0) {
+      alert("O minimo de voltas é 1, por favor digite um valor correto");
+    } else {
+      qtd_Voltas = Number(ipt_qtdvolta.value);
+      qtd_Cavalos = Number(ipt_qtdcavalo.value);
+      //   console.log(qtd_Cavalos);
+      div_start.style.display = "none";
+      div_nomes.style.display = "block";
+      for (let i = 1; i <= qtd_Cavalos; i++) {
+        let iptID = document.getElementById("nome_cavalo_" + i);
+        // console.log(iptID);
+        iptID.style.display = "block";
+      }
+    }
+  }
+  var vt_nomes = [];
+  function cadastrar_nome() {
+    for (let i = 1; i <= qtd_Cavalos; i++) {
+      let iptID = document.getElementById("nome_cavalo_" + i);
+      vt_nomes.push(iptID.value);
+      btn_cadastro.style.display = "block";
+      div_nomes.style.display = "none";
+    }
+  }
+
+  var vt_cav1 = [];
+  var vt_cav2 = [];
+  var vt_cav3 = [];
+  var vt_cav4 = [];
+  var vt_cav5 = [];
+  var vt_cav6 = [];
+
+  var contador = 0;
+
+  var tempo_cavalo1 = 0;
+  var tempo_cavalo2 = 0;
+  var tempo_cavalo3 = 0;
+  var tempo_cavalo4 = 0;
+  var tempo_cavalo5 = 0;
+  var tempo_cavalo6 = 0;
+
+  var vt_todos_tempos = [];
+  function iniciar() {
+    if (Number(ipt_qtdcavalo.value) < 2 || Number(ipt_qtdcavalo.value) > 6) {
+      return false;
+    }
+
+    if (contador < qtd_Voltas) {
+      contador++;
+      div_result.innerHTML += `========= Volta ${contador}° ========= <br>`;
+      for (let index = 1; index <= qtd_Cavalos; index++) {
+        if (index == 1) {
+          vt_cav1.push(Number((Math.random() * 2 + 7).toFixed(1)));
+          tempo_cavalo1 += vt_cav1[vt_cav1.length - 1];
+          //   console.log(vt_cav1);
+          div_result.innerHTML +=
+            vt_nomes[index - 1] +
+            " - " +
+            vt_cav1[vt_cav1.length - 1].toFixed(1) +
+            " - " +
+            tempo_cavalo1.toFixed(1) +
+            "<br>";
+        } else if (index == 2) {
+          vt_cav2.push(Number((Math.random() * 2 + 7).toFixed(1)));
+          tempo_cavalo2 += vt_cav2[vt_cav2.length - 1];
+          //   console.log(vt_cav2);
+          div_result.innerHTML +=
+            vt_nomes[index - 1] +
+            " - " +
+            vt_cav2[vt_cav2.length - 1].toFixed(1) +
+            " - " +
+            tempo_cavalo2.toFixed(1) +
+            "<br>";
+        } else if (index == 3) {
+          vt_cav3.push(Number((Math.random() * 2 + 7).toFixed(1)));
+          tempo_cavalo3 += vt_cav3[vt_cav3.length - 1];
+          //   console.log(vt_cav3);
+          div_result.innerHTML +=
+            vt_nomes[index - 1] +
+            " - " +
+            vt_cav3[vt_cav3.length - 1].toFixed(1) +
+            " - " +
+            tempo_cavalo3.toFixed(1) +
+            "<br>";
+        } else if (index == 4) {
+          vt_cav4.push(Number((Math.random() * 2 + 7).toFixed(1)));
+          tempo_cavalo4 += vt_cav4[vt_cav4.length - 1];
+          //   console.log(vt_cav4);
+          div_result.innerHTML +=
+            vt_nomes[index - 1] +
+            " - " +
+            vt_cav4[vt_cav4.length - 1].toFixed(1) +
+            " - " +
+            tempo_cavalo4.toFixed(1) +
+            "<br>";
+        } else if (index == 5) {
+          vt_cav5.push(Number((Math.random() * 2 + 7).toFixed(1)));
+          tempo_cavalo5 += vt_cav5[vt_cav5.length - 1];
+          //   console.log(vt_cav5);
+          div_result.innerHTML +=
+            vt_nomes[index - 1] +
+            " - " +
+            vt_cav5[vt_cav5.length - 1].toFixed(1) +
+            " - " +
+            tempo_cavalo5.toFixed(1) +
+            "<br>";
+        } else if (index == 6) {
+          vt_cav6.push(Number((Math.random() * 2 + 7).toFixed(1)));
+          tempo_cavalo6 += vt_cav6[vt_cav6.length - 1];
+          //   console.log(vt_cav6);f
+          div_result.innerHTML +=
+            vt_nomes[index - 1] +
+            " - " +
+            vt_cav6[vt_cav6.length - 1].toFixed(1) +
+            " - " +
+            tempo_cavalo6.toFixed(1) +
+            "<br>";
+        }
+      }
+      div_result.innerHTML += "<br><br>";
+    }
+
+    if (contador == qtd_Voltas) {
+      vt_todos_tempos.push({ nomeCabalo: vt_nomes[0], tempo: tempo_cavalo1 });
+      vt_todos_tempos.push({ nomeCabalo: vt_nomes[1], tempo: tempo_cavalo2 });
+      vt_todos_tempos.push({ nomeCabalo: vt_nomes[2], tempo: tempo_cavalo3 });
+      vt_todos_tempos.push({ nomeCabalo: vt_nomes[3], tempo: tempo_cavalo4 });
+      vt_todos_tempos.push({ nomeCabalo: vt_nomes[4], tempo: tempo_cavalo5 });
+      vt_todos_tempos.push({ nomeCabalo: vt_nomes[5], tempo: tempo_cavalo6 });
+      // console.log(vt_todos_tempos[0].tempo)
+      var primeiroLugar = 9999;
+      var segundoLugar = 9999;
+      var terceiroLugar = 9999;
+
+      btn_cadastro.style.display = "none";
+      div_result.innerHTML += `========= FINAL ========= <br>`;
+      for (let i = 0; i < qtd_Cavalos; i++) {
+        let dados = vt_todos_tempos[i];
+        console.log(dados);
+        // console.log(dados.tempo)
+        if (dados.tempo < primeiroLugar) {
+          terceiroLugar = segundoLugar;
+          segundoLugar = primeiroLugar;
+          primeiroLugar = dados.tempo;
+          console.log(primeiroLugar);
+        } else if (dados.tempo < segundoLugar) {
+          terceiroLugar = segundoLugar;
+          segundoLugar = dados.tempo;
+        } else if (dados.tempo < terceiroLugar) {
+          terceiroLugar = dados.tempo;
+        } else {
+        }
+      }
+      console.log("Primeiro Lugar: " + primeiroLugar);
+      console.log("Segundo Lugar: " + segundoLugar);
+      console.log("Terceiro Lugar: " + terceiroLugar);
+      if (qtd_Cavalos < 3) {
+        div_result.innerHTML += `Primeiro Lugar: ${primeiroLugar.toFixed(
+          1
+        )} <br>
+        Segundo Lugar ${segundoLugar.toFixed(1)}`;
+      } else {
+        div_result.innerHTML += `
+        Primeiro Lugar: ${primeiroLugar.toFixed(1)} <br>
+        Segundo Lugar ${segundoLugar.toFixed(1)} <br>
+        Terceiro Lugar ${terceiroLugar.toFixed(1)}
+        `;
+      }
+    }
+  }
+</script>
