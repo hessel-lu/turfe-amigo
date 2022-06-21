@@ -6,68 +6,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Turfe amigo</title>
 
-    <link rel="shortcut icon" href="Img turfe/icon.png">
+    <link rel="shortcut icon" href="imgs turfe/icon.png">
     <link rel="stylesheet" href="GRUPO1front.css">
   </head>
 
   <body>
-    <div id="div_start">
-      Qtd voltas
-      <input type="number" id="ipt_qtdvolta" />
-      Qtd cavalo
-      <input type="number" id="ipt_qtdcavalo" /> <br />
-      <br />
-      <button onclick="cadastro()">
-        Cadastrar Voltas e Quantidade de Cavalos
-      </button>
-    </div>
-    <div id="div_nomes" style="display: none">
-      <input
-        id="nome_cavalo_1"
-        type="text"
-        placeholder="Nome Cavalo 1"
-        style="display: none"
-      /><br />
-      <input
-        id="nome_cavalo_2"
-        type="text"
-        placeholder="Nome Cavalo 2"
-        style="display: none"
-      /><br />
-      <input
-        id="nome_cavalo_3"
-        type="text"
-        placeholder="Nome Cavalo 3"
-        style="display: none"
-      /><br />
-      <input
-        id="nome_cavalo_4"
-        type="text"
-        placeholder="Nome Cavalo 4"
-        style="display: none"
-      /><br />
-      <input
-        id="nome_cavalo_5"
-        type="text"
-        placeholder="Nome Cavalo 5"
-        style="display: none"
-      /><br />
-      <input
-        id="nome_cavalo_6"
-        type="text"
-        placeholder="Nome Cavalo 6"
-        style="display: none"
-      /><br />
-      <button onclick="cadastrar_nome()">
-        Cadastrar Nomes e Começar Corrida!
-      </button>
-    </div>
-    <div id="div_result"></div>
-    <button id="btn_cadastro" onclick="iniciar()" style="display: none">
-      Dar uma volta
-    </button>
+    <div class="displayEsquerda">
+      <div class="displayEsquerda2">
+        <h1  class="titulo">Turfe amigo</h1>
+        <div class="imagemAndInputs">
+          <div class="imagem">
+            <img src="imgs turfe/img7.png" alt="">
+          </div>
+          <div class="inputs">
+            <div id="div_start">
+              <!-- Qtd voltas -->
+              <input type="number" id="ipt_qtdvolta" class="estiloInputs" placeholder="Quantidade de voltas"/> <br />
+              <!-- Qtd cavalo -->
+              <input type="number" id="ipt_qtdcavalo" class="estiloInputs" placeholder="Quantidade de cavalos"/> <br />
+              <br />
+              <button onclick="cadastro()" class="estiloButton">
+                Cadastrar voltas e cavalos
+              </button>
+            </div>
 
-    <div id="idColocacao"></div>
+            <div id="div_nomes" style="display: none">
+              <input
+                id="nome_cavalo_1"
+                type="text"
+                class="estiloInputs"
+                placeholder="Nome Cavalo 1"
+                style="display: none"
+              /><br />
+              <input
+                id="nome_cavalo_2"
+                type="text"
+                class="estiloInputs"
+                placeholder="Nome Cavalo 2"
+                style="display: none"
+              /><br />
+              <input
+                id="nome_cavalo_3"
+                type="text"
+                class="estiloInputs"
+                placeholder="Nome Cavalo 3"
+                style="display: none"
+              /><br />
+              <input
+                id="nome_cavalo_4"
+                type="text"
+                class="estiloInputs"
+                placeholder="Nome Cavalo 4"
+                style="display: none"
+              /><br />
+              <input
+                id="nome_cavalo_5"
+                type="text"
+                class="estiloInputs"
+                placeholder="Nome Cavalo 5"
+                style="display: none"
+              /><br />
+              <input
+                id="nome_cavalo_6"
+                type="text"
+                class="estiloInputs"
+                placeholder="Nome Cavalo 6"
+                style="display: none"
+              /><br />
+              <button onclick="cadastrar_nome()" class="estiloButton">
+                Cadastrar nomes e começar corrida!
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="div_result"></div>
+
+        <button id="btn_cadastro" onclick="iniciar()" class="estiloButton" style="display: none">
+          Dar uma volta
+        </button>
+
+        <div id="idColocacao"></div>
+      </div>
+    </div>
+
+    <div class="displayDireita"></div>
   </body>
 </html>
 <script>
@@ -77,10 +99,10 @@
   function cadastro() {
     if (Number(ipt_qtdcavalo.value) < 2 || Number(ipt_qtdcavalo.value) > 6) {
       alert(
-        "O minimo é dois cavalos por corrida e no máximo 6, por favor digite o valor correto"
+        "O mínimo são dois cavalos por corrida e no máximo seis.\nPor favor digite um valor correto."
       );
     } else if (Number(ipt_qtdvolta.value) <= 0) {
-      alert("O minimo de voltas é 1, por favor digite um valor correto");
+      alert("O mínimo de voltas é uma. Por favor digite um valor correto.");
     } else {
       qtd_Voltas = Number(ipt_qtdvolta.value);
       qtd_Cavalos = Number(ipt_qtdcavalo.value);

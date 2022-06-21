@@ -1,7 +1,96 @@
 body {
     margin: 0;
     border: 0;
-    background-color: #5702A1;
     display: flex;
+    flex-direction: row;
+    background-color: #5702A1;
 }
 
+.displayEsquerda {
+    height: 100vh;
+    width:  70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+
+.displayEsquerda2 {
+    height: 82vh;
+    width:  90%;
+    border: 4px solid transparent;
+    border-radius: 3cm;
+    background-color: #8127B9;
+    /* border: 2px solid red; */
+}
+
+@font-face {
+    font-family: 'Lemon Tea';
+    src: url(fonte/Lemon\ Tea.ttf);
+}
+
+.titulo {
+    display: flex;
+    justify-content: center;
+    color: #C695DA;
+    font-family:'Lemon Tea';
+    font-size: 45px;
+    /* border: 2px solid red; */
+}
+
+.imagemAndInputs {
+    display: flex;
+    flex-direction: row;
+}
+
+.imagem {
+    height: 60vh;
+    width:  50%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    /* border: 2px solid red; */
+}
+
+.imagem img {
+    height: 90%;
+    /* border: 2px solid red; */
+}
+
+.inputs {
+    height: 60vh;
+    width:  50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+
+.estiloInputs {
+    height: 5vh;
+    width:  15vw;
+    margin-bottom: 1vh;
+}
+
+.estiloButton {
+    height: 6vh;
+    width:  15.5vw;
+    color: white;
+    font-size: 14px;
+    border: 1px solid transparent;
+    border-radius: 18px;
+    transition: 0.3s;
+    cursor: pointer;
+    background-color: #39D05C;
+}
+
+.estiloButton:hover {
+    font-size: 14.5px;
+    transition: 0.3s;
+}
+
+.displayDireita {
+    height: 100vh;
+    width:  30%;
+    /* border: 2px solid green; */
+}
