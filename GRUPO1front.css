@@ -41,6 +41,7 @@ body {
 .imagemAndInputs {
     display: flex;
     flex-direction: row;
+    /* border: 4px solid black; */
 }
 
 .imagem {
@@ -87,6 +88,17 @@ body {
 .estiloButton:hover {
     font-size: 14.5px;
     transition: 0.3s;
+}
+
+.tela_result {
+    height: 60vh;
+    width:  100%;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    border: 2px solid green;
 }
 
 .displayDireita {

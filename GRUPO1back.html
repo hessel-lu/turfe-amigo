@@ -14,7 +14,7 @@
     <div class="displayEsquerda">
       <div class="displayEsquerda2">
         <h1  class="titulo">Turfe amigo</h1>
-        <div class="imagemAndInputs">
+        <div id="div_imagemAndInputs" class="imagemAndInputs">
           <div class="imagem">
             <img src="imgs turfe/img7.png" alt="">
           </div>
@@ -79,12 +79,13 @@
             </div>
           </div>
         </div>
-        <div id="div_result"></div>
-
-        <button id="btn_cadastro" onclick="iniciar()" class="estiloButton" style="display: none">
-          Dar uma volta
-        </button>
-
+        
+        <div  id="div_telaResult" class="tela_result" style="display: none">
+          <div id="div_result"></div>
+          <button id="btn_cadastro" onclick="iniciar()" class="estiloButton" style="display: none">
+            Dar uma volta
+          </button>
+        </div>
         <div id="idColocacao"></div>
       </div>
     </div>
@@ -123,6 +124,8 @@
       vt_nomes.push(iptID.value);
       btn_cadastro.style.display = "block";
       div_nomes.style.display = "none";
+      div_imagemAndInputs.style.display = "none";
+      div_telaResult.style.display = "block";
     }
   }
 
@@ -261,12 +264,12 @@
         div_result.innerHTML += `Primeiro Lugar: ${primeiroLugar.toFixed(
           1
         )} <br>
-        Segundo Lugar ${segundoLugar.toFixed(1)}`;
+        Segundo Lugar: ${segundoLugar.toFixed(1)}`;
       } else {
         div_result.innerHTML += `
         Primeiro Lugar: ${primeiroLugar.toFixed(1)} <br>
-        Segundo Lugar ${segundoLugar.toFixed(1)} <br>
-        Terceiro Lugar ${terceiroLugar.toFixed(1)}
+        Segundo Lugar: ${segundoLugar.toFixed(1)} <br>
+        Terceiro Lugar: ${terceiroLugar.toFixed(1)}
         `;
       }
     }
