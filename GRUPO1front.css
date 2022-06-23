@@ -7,7 +7,7 @@ body {
 }
 
 .displayEsquerda {
-    height: 100vh;
+    height: auto; /* height 100vh -> auto */
     width:  70%;
     display: flex;
     justify-content: center;
@@ -16,7 +16,7 @@ body {
 }
 
 .displayEsquerda2 {
-    height: 82vh;
+    height: auto; /* height 100vh -> auto */
     width:  90%;
     border: 4px solid transparent;
     border-radius: 3cm;
@@ -41,7 +41,7 @@ body {
 .imagemAndInputs {
     display: flex;
     flex-direction: row;
-    /* border: 4px solid black; */
+    /* border: 4px solid red; */
 }
 
 .imagem {
@@ -49,7 +49,7 @@ body {
     width:  50%;
     display: flex;
     align-items: flex-end;
-    justify-content: center;
+    justify-content: flex-end;
     /* border: 2px solid red; */
 }
 
@@ -90,15 +90,14 @@ body {
     transition: 0.3s;
 }
 
-.tela_result {
-    height: 60vh;
-    width:  100%;
+#div_telaResult {
+    height: auto;
+    width:  auto;
     display: flex;
+    /* justify-content: center; */
+    padding-left: 23.4vw;
     color: white;
-    flex-direction: column;
-    /* align-items: center; */
-    justify-content: center;
-    border: 2px solid green;
+    /* border: 2px solid green; */
 }
 
 .displayDireita {
