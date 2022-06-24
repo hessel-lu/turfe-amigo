@@ -1,3 +1,1 @@
 # turfe-amigo
-
-Web template: 
