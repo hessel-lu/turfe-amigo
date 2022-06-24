@@ -7,8 +7,8 @@ body {
 }
 
 .displayEsquerda {
-    height: auto; /* height 100vh -> auto */
-    width:  70%;
+    height: 100vh; /* height 100vh -> auto */
+    width:  100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +17,7 @@ body {
 
 .displayEsquerda2 {
     height: auto; /* height 100vh -> auto */
-    width:  90%;
+    width:  80%;
     border: 4px solid transparent;
     border-radius: 3cm;
     background-color: #8127B9;
@@ -95,13 +95,7 @@ body {
     width:  auto;
     display: flex;
     /* justify-content: center; */
-    padding-left: 23.4vw;
+    padding-left: 32.5vw;
     color: white;
-    /* border: 2px solid green; */
-}
-
-.displayDireita {
-    height: 100vh;
-    width:  30%;
     /* border: 2px solid green; */
 }

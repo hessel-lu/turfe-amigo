@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>  
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -85,11 +85,8 @@
             Dar uma volta
           </button>
         </div>
-        <div id="idColocacao"></div>
       </div>
     </div>
-
-    <div class="displayDireita"></div>
   </body>
 </html>
 <script>
@@ -233,42 +230,52 @@
       vt_todos_tempos.push({ nomeCabalo: vt_nomes[4], tempo: tempo_cavalo5 });
       vt_todos_tempos.push({ nomeCabalo: vt_nomes[5], tempo: tempo_cavalo6 });
       // console.log(vt_todos_tempos[0].tempo)
+      
       var primeiroLugar = 9999;
       var segundoLugar = 9999;
       var terceiroLugar = 9999;
+      var nomeCavalo 
+      var nomeCavalo2
+      var nomeCavalo3
 
       btn_cadastro.style.display = "none";
       div_result.innerHTML += `========= FINAL ========= <br>`;
       for (let i = 0; i < qtd_Cavalos; i++) {
         let dados = vt_todos_tempos[i];
-        console.log(dados);
         // console.log(dados.tempo)
         if (dados.tempo < primeiroLugar) {
           terceiroLugar = segundoLugar;
           segundoLugar = primeiroLugar;
           primeiroLugar = dados.tempo;
-          console.log(primeiroLugar);
         } else if (dados.tempo < segundoLugar) {
-          terceiroLugar = segundoLugar;
           segundoLugar = dados.tempo;
         } else if (dados.tempo < terceiroLugar) {
           terceiroLugar = dados.tempo;
-        } else {
         }
       }
-      console.log("Primeiro Lugar: " + primeiroLugar);
-      console.log("Segundo Lugar: " + segundoLugar);
-      console.log("Terceiro Lugar: " + terceiroLugar);
+
+      for (let index = 0; index < vt_todos_tempos.length; index++) {
+        if (primeiroLugar == vt_todos_tempos[index].tempo) {
+          nomeCavalo = vt_todos_tempos[index].nomeCabalo
+        } else if (segundoLugar == vt_todos_tempos[index].tempo) {
+          nomeCavalo2 = vt_todos_tempos[index].nomeCabalo
+        } else if (terceiroLugar == vt_todos_tempos[index].tempo) {
+          nomeCavalo3 = vt_todos_tempos[index].nomeCabalo
+        }
+      }
+
       if (qtd_Cavalos < 3) {
-        div_result.innerHTML += `Primeiro Lugar: ${primeiroLugar.toFixed(
+        
+        
+        div_result.innerHTML += `Primeiro Lugar: ${nomeCavalo}: ${primeiroLugar.toFixed(
           1
         )} <br>
-        Segundo Lugar: ${segundoLugar.toFixed(1)}`;
+        Segundo Lugar: ${nomeCavalo2}: ${segundoLugar.toFixed(1)}`;
       } else {
         div_result.innerHTML += `
-        Primeiro Lugar: ${primeiroLugar.toFixed(1)} <br>
-        Segundo Lugar: ${segundoLugar.toFixed(1)} <br>
-        Terceiro Lugar: ${terceiroLugar.toFixed(1)}
+        Primeiro Lugar: ${nomeCavalo}: ${primeiroLugar.toFixed(1)} <br>
+        Segundo Lugar: ${nomeCavalo2}: ${segundoLugar.toFixed(1)} <br>
+        Terceiro Lugar: ${nomeCavalo3}: ${terceiroLugar.toFixed(1)}
         `;
       }
     }
